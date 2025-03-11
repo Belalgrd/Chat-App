@@ -1,0 +1,130 @@
+
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .chat-messages {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background: #f9fafb;
+  }
+  
+  .message {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    word-wrap: break-word;
+    font-size: 1rem;
+    opacity: 0;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .message.user {
+    background: linear-gradient(135deg, var(--user-bg), #a7f3d0);
+    align-self: flex-end;
+    text-align: right;
+    border-bottom-right-radius: 0;
+  }
+  
+  .message.bot {
+    background: linear-gradient(135deg, var(--bot-bg), #e2e8f0);
+    align-self: flex-start;
+    text-align: left;
+    border-bottom-left-radius: 0;
+  }
+  
+  .chat-input {
+    display: flex;
+    padding: 1rem;
+    background: #f3f4f6;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+  }
+  
+  .chat-input input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+  }
+  
+  .chat-input button {
+    margin-left: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .chat-input button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .chat-container {
+      height: 75vh;
+      margin: 0 1rem;
+    }
+  
+    .chat-input button {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .App-header h2 {
+      font-size: 1.8rem;
+    }
+  
+    .chat-input input,
+    .chat-input button {
+      font-size: 0.9rem;
+    }
+  }
+  
